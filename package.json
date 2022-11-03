@@ -1,0 +1,35 @@
+{
+  "name": "freelatech-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "format": "prettier --write \"**/*.{js,jsx,ts}\" && git add -A ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dias-technology/freelatech-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dias-technology/freelatech-backend/issues"
+  },
+  "homepage": "https://github.com/Dias-technology/freelatech-backend#readme",
+  "devDependencies": {
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "git-commit-msg-linter": "^4.2.1",
+    "husky": "^8.0.1",
+    "jest": "^29.2.2",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^29.0.3",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.1.0",
+    "typescript": "^4.8.4"
+  }
+}
