@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "prepare": "husky install",
-    "format": "prettier --write \"**/*.{js,jsx,ts}\" && git add -A ."
+    "format": "prettier --write \"**/*.{js,jsx,ts}\" && git add -A .",
+    "create:migration": "npx ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:create -n"
   },
   "repository": {
     "type": "git",
