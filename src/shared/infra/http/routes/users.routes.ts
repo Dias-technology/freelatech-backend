@@ -1,5 +1,8 @@
+import { UserController } from '@/presentation/controllers'
 import { celebrate, Joi } from 'celebrate'
-import { NextFunction, Request, Response, Router } from 'express'
+import { Router } from 'express'
+
+const userController = new UserController()
 
 export default (router: Router): void => {
 	router.post(
@@ -16,11 +19,6 @@ export default (router: Router): void => {
 					.required(),
 			},
 		}),
-		(request: Request, res: Response, next: NextFunction) => {
-			console.log('cheguei')
-			console.log(request.body)
-
-			return res.send()
-		},
+		userController.save,
 	)
 }
