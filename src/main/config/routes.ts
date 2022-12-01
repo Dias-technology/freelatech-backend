@@ -9,6 +9,7 @@ import {
 import { readdirSync } from 'fs'
 import { join } from 'path'
 import { customErrors } from '@/main/middlewares'
+import { AppError } from '@/shared/errors'
 
 export default (app: Express): void => {
 	const router = Router()
@@ -32,6 +33,14 @@ export default (app: Express): void => {
 			response: Response,
 			_: NextFunction,
 		) => {
+			if (error instanceof AppError) {
+				return response.status(error.statusCode).json({
+					error: 'APP_ERROR',
+					message: error.message,
+					stack: error.stack,
+				})
+			}
+
 			if (!isCelebrateError(error)) {
 				return response.status(500).json({
 					error: 'INTERNAL_SERVER_ERROR',

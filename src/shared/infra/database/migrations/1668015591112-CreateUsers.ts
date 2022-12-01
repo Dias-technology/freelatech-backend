@@ -30,12 +30,12 @@ export class CreateUsers1668015591112 implements MigrationInterface {
 					},
 					{
 						name: 'email',
-						type: 'varhar',
+						type: 'varchar',
 						isUnique: true,
 					},
 					{
 						name: 'password',
-						type: 'varhar',
+						type: 'varchar',
 					},
 					{
 						name: 'hour_value',

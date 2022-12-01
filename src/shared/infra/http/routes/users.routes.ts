@@ -1,5 +1,7 @@
+import { TypeUser } from '@/domain/entities'
 import { UserController } from '@/presentation/controllers'
 import { celebrate, Joi } from 'celebrate'
+import { cpf } from 'cpf-cnpj-validator'
 import { Router } from 'express'
 
 const userController = new UserController()
@@ -11,10 +13,23 @@ export default (router: Router): void => {
 			body: {
 				name: Joi.string().min(3).required().lowercase(),
 				email: Joi.string().email().required().lowercase(),
+				type: Joi.string()
+					.required()
+					.valid(...Object.values(TypeUser)),
+				document: Joi.string()
+					.required()
+					.min(11)
+					.custom((document) => {
+						if (!cpf.isValid(document)) {
+							throw new Error('document is invalid')
+						}
+
+						return document
+					}),
 				password: Joi.string()
 					.min(8)
 					.regex(
-						/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/,
+						/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
 					)
 					.required(),
 			},

@@ -1,3 +1,4 @@
+import '@/shared/container'
 import 'express-async-errors'
 
 import express, { Express } from 'express'
