@@ -12,4 +12,16 @@ export class UserController {
 
 		return response.status(201).json({ user })
 	}
+
+	async avatarUpload(
+		request: Request,
+		response: Response,
+	): Promise<Response> {
+		const { file } = request
+		const { id } = request.params
+
+		await makeUserService().avatarUpload(id, file)
+
+		return response.status(200).send()
+	}
 }

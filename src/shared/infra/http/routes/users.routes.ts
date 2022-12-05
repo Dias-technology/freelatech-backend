@@ -1,10 +1,13 @@
 import { TypeUser } from '@/domain/entities'
+import uploadConfig from '@/main/config/upload'
 import { UserController } from '@/presentation/controllers'
 import { celebrate, Joi } from 'celebrate'
 import { cpf } from 'cpf-cnpj-validator'
 import { Router } from 'express'
+import multer from 'multer'
 
 const userController = new UserController()
+const upload = multer(uploadConfig)
 
 export default (router: Router): void => {
 	router.post(
@@ -35,5 +38,11 @@ export default (router: Router): void => {
 			},
 		}),
 		userController.save,
+	)
+
+	router.patch(
+		'/user/:id/avatar',
+		upload.single('avatar'),
+		userController.avatarUpload,
 	)
 }
