@@ -15,10 +15,13 @@ export default (router: Router): void => {
 		celebrate({
 			body: {
 				name: Joi.string().min(3).required().lowercase(),
+
 				email: Joi.string().email().required().lowercase(),
+
 				type: Joi.string()
 					.required()
 					.valid(...Object.values(TypeUser)),
+
 				document: Joi.string()
 					.required()
 					.min(11)
@@ -26,9 +29,9 @@ export default (router: Router): void => {
 						if (!cpf.isValid(document)) {
 							throw new Error('document is invalid')
 						}
-
 						return document
 					}),
+
 				password: Joi.string()
 					.min(8)
 					.regex(
