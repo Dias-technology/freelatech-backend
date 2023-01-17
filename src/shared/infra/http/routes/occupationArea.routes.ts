@@ -10,9 +10,11 @@ export default (router: Router): void => {
 		'/user/occupationarea',
 		celebrate({
 			body: {
-				area: Joi.string().required().lowercase(),
-
-				areaFunction: Joi.string().required().lowercase(),
+				items: Joi.array().items({
+					area: Joi.string().required().lowercase(),
+					areaFunction: Joi.string().required().lowercase(),
+					user_id: Joi.string(),
+				}),
 			},
 		}),
 		occupationAreaController.save,

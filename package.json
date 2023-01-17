@@ -8,7 +8,8 @@
     "start": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "format": "prettier --write \"**/*.{js,jsx,ts}\" && git add -A .",
     "typeorm:migration": "npx ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:create -n",
-    "typeorm:migrate": "npx ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:run"
+    "typeorm:migrate": "npx ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:run",
+    "typeorm:revert": "npx ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:revert"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,7 @@
     "pino": "^8.7.0",
     "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.7.0",
-    "typeorm": "^0.2.41"
+    "typeorm": "^0.2.41",
+    "csv-parse": "^5.0.3"
   }
 }

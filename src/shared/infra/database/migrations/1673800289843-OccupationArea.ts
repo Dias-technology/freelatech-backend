@@ -23,12 +23,28 @@ export class OccupationArea1673800289843
 						name: 'areaFunction',
 						type: 'varchar',
 					},
+
+					{
+						name: 'user_id',
+						type: 'uuid',
+						isNullable: true,
+					},
+				],
+				foreignKeys: [
+					{
+						name: 'FKUser',
+						referencedTableName: 'users',
+						referencedColumnNames: ['id'],
+						columnNames: ['user_id'],
+						onDelete: 'SET NULL',
+						onUpdate: 'SET NULL',
+					},
 				],
 			}),
 		)
 	}
 
 	public async down(queryRunner: QueryRunner): Promise<void> {
-		await queryRunner.dropTable('OccupationsArea')
+		await queryRunner.dropTable('OccupationArea')
 	}
 }

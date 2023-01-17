@@ -6,9 +6,9 @@ class OccupationAreaController {
 		request: Request,
 		response: Response,
 	): Promise<Response> {
-		const data = request.body
-		console.log('sdddd')
-		const occupationArea = await makeOccupationService().create(data)
+		const { items } = request.body
+
+		const occupationArea = await makeOccupationService().create(items)
 
 		return response.status(201).json({ occupationArea })
 	}

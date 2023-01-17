@@ -34,6 +34,14 @@ class OccupationAreaRepository implements IOccupationAreaRepository {
 	async findByArea(area: string): Promise<OccupationArea> {
 		return this.repository.findOne({ area })
 	}
+
+	async findByIdUser(id_user: string): Promise<OccupationArea[]> {
+		return this.repository.find({
+			where: {
+				user_id: id_user,
+			},
+		})
+	}
 }
 
 export { OccupationAreaRepository }

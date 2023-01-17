@@ -5,6 +5,7 @@ interface IOccupationAreaRepository {
 	save: (data: SaveOccupationAreaDTO) => Promise<OccupationArea>
 	findById: (id: string) => Promise<OccupationArea>
 	findByArea: (area: string) => Promise<OccupationArea>
+	findByIdUser: (id_user: string) => Promise<OccupationArea>
 }
 
 export { IOccupationAreaRepository }
