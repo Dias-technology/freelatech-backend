@@ -19,4 +19,6 @@ export default (router: Router): void => {
 		}),
 		occupationAreaController.save,
 	)
+
+	router.get('/user/occupationarea')
 }
