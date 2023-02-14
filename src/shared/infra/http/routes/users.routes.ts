@@ -1,51 +1,23 @@
-import { TypeUser } from '@/domain/entities'
-import uploadConfig from '@/main/config/upload'
-import { UserController } from '@/presentation/controllers'
-import { celebrate, Joi } from 'celebrate'
-import { cpf } from 'cpf-cnpj-validator'
+import uploadConfig from '@/config/upload'
+import { CreateUserController } from '@/modules/accounts/useCases/CreateUser/CreateUserController'
+import { UpdateUserAvatarController } from '@/modules/accounts/useCases/updateUserAvatar/UpdateUserAvatarController'
 import { Router } from 'express'
 import multer from 'multer'
 
-const userController = new UserController()
-const upload = multer(uploadConfig)
+const userRoutes = Router()
 
-export default (router: Router): void => {
-	router.post(
-		'/user/save',
-		celebrate({
-			body: {
-				name: Joi.string().min(3).required().lowercase(),
+const uploadAvatar = multer(uploadConfig)
 
-				email: Joi.string().email().required().lowercase(),
+const createUserController = new CreateUserController()
+console.log('createUserController', createUserController)
+const updateUserAvatarController = new UpdateUserAvatarController()
 
-				type: Joi.string()
-					.required()
-					.valid(...Object.values(TypeUser)),
+userRoutes.post('/', createUserController.handle)
 
-				document: Joi.string()
-					.required()
-					.min(11)
-					.custom((document) => {
-						if (!cpf.isValid(document)) {
-							throw new Error('document is invalid')
-						}
-						return document
-					}),
+// userRoutes.patch(
+// 	"/avatar",
+// 	uploadAvatar.single("avatar"),
+// 	updateUserAvatarController.handle
+// )
 
-				password: Joi.string()
-					.min(8)
-					.regex(
-						/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
-					)
-					.required(),
-			},
-		}),
-		userController.save,
-	)
-
-	router.patch(
-		'/user/:id/avatar',
-		upload.single('avatar'),
-		userController.avatarUpload,
-	)
-}
+export { userRoutes }
