@@ -42,6 +42,7 @@
   "dependencies": {
     "@sentry/node": "^7.35.0",
     "@sentry/tracing": "^7.35.0",
+    "aws-sdk": "^2.1316.0",
     "bcrypt": "^5.1.0",
     "celebrate": "^15.0.1",
     "class-transformer": "^0.5.1",

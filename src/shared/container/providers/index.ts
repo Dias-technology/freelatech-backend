@@ -1,1 +1,2 @@
-import './StorageProvider'
+export * from './DataProvider'
+export * from './StorageProvider'
