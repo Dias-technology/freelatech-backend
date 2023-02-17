@@ -1,9 +1,9 @@
 interface ICreateOccupancyAreaDTO {
 	id?: string
 
-	areas: string[]
+	areas: string
 
-	areaFunction: string[]
+	areaFunction: string
 
 	user_id: string
 }

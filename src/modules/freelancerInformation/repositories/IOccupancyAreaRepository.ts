@@ -4,5 +4,5 @@ import { ICreateOccupancyAreaDTO } from '@/modules/freelancerInformation/dto/ICr
 export interface IOccupancyAreaRepository {
 	create: (data: ICreateOccupancyAreaDTO) => Promise<void>
 
-	findByArea: (area: string) => Promise<OccupancyArea[]>
+	findByArea: (area: string) => Promise<OccupancyArea>
 }

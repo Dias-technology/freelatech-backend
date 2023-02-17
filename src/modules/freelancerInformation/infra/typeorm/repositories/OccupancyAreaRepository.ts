@@ -11,11 +11,7 @@ class OccupancyAreaRepository implements IOccupancyAreaRepository {
 	}
 
 	async create(data: ICreateOccupancyAreaDTO): Promise<void> {
-		const areas = this.repository.create(
-			Object.assign(data, {
-				areas: JSON.stringify(data.areas),
-			}),
-		)
+		const areas = this.repository.create(data)
 
 		await this.repository.save(areas)
 	}

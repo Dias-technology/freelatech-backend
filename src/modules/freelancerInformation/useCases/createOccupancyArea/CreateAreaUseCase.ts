@@ -16,17 +16,15 @@ class CreateAreaUseCase {
 		areaFunction,
 		user_id,
 	}: ICreateOccupancyAreaDTO): Promise<void> {
-		for (const areaArray of areas) {
-			const areaAlreadyExists =
-				await this.OccupancyAreaRepository.findByArea(areaArray)
-			console.log('areaAlreadyExists', areaAlreadyExists)
+		const areaAlreadyExists =
+			await this.OccupancyAreaRepository.findByArea(areas)
+		console.log('areaAlreadyExists', areaAlreadyExists)
 
-			if (areaAlreadyExists) {
-				throw new AppError({
-					statusCode: 400,
-					message: `Area ${areaAlreadyExists} already exists.`,
-				})
-			}
+		if (areaAlreadyExists) {
+			throw new AppError({
+				statusCode: 400,
+				message: `Area '${areaAlreadyExists.areas}' already exists.`,
+			})
 		}
 
 		await this.OccupancyAreaRepository.create({

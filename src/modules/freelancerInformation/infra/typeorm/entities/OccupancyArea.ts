@@ -21,7 +21,7 @@ class OccupancyArea {
 	user_id: string
 
 	@Column()
-	areaFunction: Date
+	areaFunction: string
 
 	@ManyToOne(() => User)
 	@JoinColumn({ name: 'user_id' })
