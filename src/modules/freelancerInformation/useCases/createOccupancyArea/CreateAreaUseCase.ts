@@ -16,8 +16,15 @@ class CreateAreaUseCase {
 		areaFunction,
 		user_id,
 	}: ICreateOccupancyAreaDTO): Promise<void> {
-		const areaAlreadyExistsThisUser =
-			await this.OccupancyAreaRepository.findByUserID(user_id)
+		const areaAlreadyExistsThisUser = await this.OccupancyAreaRepository.findByUserID(user_id)
+
+        if (areaAlreadyExistsThisUser.length >= 3){
+            throw new AppError({
+                statusCode: 400,
+                message: 'The user can only register 3 different areas',
+            })
+        }
+
 
 		for (const areaUsed of areaAlreadyExistsThisUser) {
 			if (areaUsed.areas == areas) {
