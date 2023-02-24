@@ -17,8 +17,11 @@ class OccupancyAreaRepository implements IOccupancyAreaRepository {
 	}
 
 	async findByArea(areas: string): Promise<OccupancyArea> {
-		const areaUsed = this.repository.findOne({ areas })
-		return areaUsed
+		return this.repository.findOne({ areas })
+	}
+
+	async findByUserID(user_id: string): Promise<OccupancyArea[]> {
+		return this.repository.find({ user_id })
 	}
 }
 

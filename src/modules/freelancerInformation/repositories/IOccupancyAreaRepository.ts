@@ -5,4 +5,6 @@ export interface IOccupancyAreaRepository {
 	create: (data: ICreateOccupancyAreaDTO) => Promise<void>
 
 	findByArea: (area: string) => Promise<OccupancyArea>
+
+	findByUserID: (user_id: string) => Promise<OccupancyArea[]>
 }
