@@ -7,4 +7,6 @@ export interface IOccupancyAreaRepository {
 	findByArea: (area: string) => Promise<OccupancyArea>
 
 	findByUserID: (user_id: string) => Promise<OccupancyArea[]>
+
+	deleteById: (id: string) => Promise<void>
 }
