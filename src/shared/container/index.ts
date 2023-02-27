@@ -9,7 +9,10 @@ import { UsersTokensRepository } from '@/modules/accounts/infra/typeorm/reposito
 import { IOccupancyAreaRepository } from '@/modules/freelancerInformation/repositories/IOccupancyAreaRepository'
 import { OccupancyAreaRepository } from '@/modules/freelancerInformation/infra/typeorm/repositories/OccupancyAreaRepository'
 
+import { ICoursesRepository } from '@/modules//freelancerInformation/repositories/ICoursesRepository'
+import {CoursesRepository} from '@/modules/freelancerInformation/infra/typeorm/repositories/CoursesRepository'
 import '@/shared/container/providers'
+
 // DATABASE
 container.registerSingleton<IUserRepository>(
 	'UserRepository',
@@ -24,4 +27,9 @@ container.registerSingleton<IUsersTokensRepository>(
 container.registerSingleton<IOccupancyAreaRepository>(
 	'OccupancyAreaRepository',
 	OccupancyAreaRepository,
+)
+
+container.registerSingleton<ICoursesRepository>(
+    'CoursesRepository',
+    CoursesRepository
 )

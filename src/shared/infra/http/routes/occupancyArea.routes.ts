@@ -1,9 +1,9 @@
 import { Router } from 'express'
 import { ensureAuthenticated } from '../middlewares/ensureAuthenticated'
 
-import { CreateAreaController } from '@/modules/freelancerInformation/useCases/createOccupancyArea/CreateAreaController'
-import { ListAreasController } from '@/modules/freelancerInformation/useCases/listOccupancyArea/ListAreasController'
-import { DeleteAreaController } from '@/modules/freelancerInformation/useCases/deleteOccupancyArea/DeleteAreaController'
+import { CreateAreaController } from '@/modules/freelancerInformation/useCases/occupancyArea/createOccupancyArea/CreateAreaController'
+import { ListAreasController } from '@/modules/freelancerInformation/useCases/occupancyArea/listOccupancyArea/ListAreasController'
+import { DeleteAreaController } from '@/modules/freelancerInformation/useCases/occupancyArea/deleteOccupancyArea/DeleteAreaController'
 
 const occupancyRoutes = Router()
 
