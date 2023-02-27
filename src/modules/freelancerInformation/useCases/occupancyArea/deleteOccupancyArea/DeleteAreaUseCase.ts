@@ -4,14 +4,14 @@ import { IOccupancyAreaRepository } from '@/modules/freelancerInformation/reposi
 
 @injectable()
 class DeleteAreaUseCase {
-    constructor(
+	constructor(
 		@inject('OccupancyAreaRepository')
-        private OccupancyAreaRepository: IOccupancyAreaRepository,
-    ) {}
+		private OccupancyAreaRepository: IOccupancyAreaRepository,
+	) {}
 
-    async execute(id: string): Promise<void>{
-        return await this.OccupancyAreaRepository.deleteById(id)
-    }
+	async execute(id: string): Promise<void> {
+		return await this.OccupancyAreaRepository.deleteById(id)
+	}
 }
 
 export { DeleteAreaUseCase }

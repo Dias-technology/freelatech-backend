@@ -7,9 +7,9 @@
     "prepare": "husky install",
     "start": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "format": "prettier --write \"**/*.{js,jsx,ts}\" && git add -A .",
-    "typeorm:migration": "npx ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:create -n",
-    "typeorm:migrate": "npx ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:run",
-    "typeorm:revert": "npx ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:revert"
+    "typeorm:migration": "npx ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migrations:create -n",
+    "typeorm:migrate": "npx ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migrations:run",
+    "typeorm:revert": "npx ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migrations:revert"
   },
   "repository": {
     "type": "git",

@@ -5,17 +5,14 @@ import { IOccupancyAreaRepository } from '@/modules/freelancerInformation/reposi
 
 @injectable()
 class ListAreasUseCase {
-
-    constructor(
+	constructor(
 		@inject('OccupancyAreaRepository')
-        private OccupancyAreaRepository: IOccupancyAreaRepository,
-    ) {}
+		private OccupancyAreaRepository: IOccupancyAreaRepository,
+	) {}
 
-    async execute(user_id: string): Promise<OccupancyArea[]> {
-        return await this.OccupancyAreaRepository.findByUserID(user_id)
-        
-    }
-
+	async execute(user_id: string): Promise<OccupancyArea[]> {
+		return await this.OccupancyAreaRepository.findByUserID(user_id)
+	}
 }
 
 export { ListAreasUseCase }
