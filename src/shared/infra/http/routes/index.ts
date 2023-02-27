@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { authenticateRoutes } from './authenticate.routes'
 import { occupancyRoutes } from './occupancyArea.routes'
-import { coursesRoutes } from './couses.routes'
+import { coursesRoutes } from './courses.routes'
 
 import { userRoutes } from './users.routes'
 

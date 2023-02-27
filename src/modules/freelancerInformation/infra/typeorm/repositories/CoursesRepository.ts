@@ -19,6 +19,10 @@ class CoursesRepository implements ICoursesRepository {
         await this.repository.save(courses)
     }
 
+    async findByUserID(user_id: string): Promise<Courses[]> {
+		return this.repository.find({ user_id })
+	}
+
 }
 
 export { CoursesRepository }
