@@ -11,7 +11,12 @@ import { OccupancyAreaRepository } from '@/modules/freelancerInformation/infra/t
 
 import { ICoursesRepository } from '@/modules//freelancerInformation/repositories/ICoursesRepository'
 import {CoursesRepository} from '@/modules/freelancerInformation/infra/typeorm/repositories/CoursesRepository'
+
+import { IWorkRepository } from '@/modules/freelancerInformation/repositories/IWorkRepository'
+import { WorkRepository } from '@/modules/freelancerInformation/infra/typeorm/repositories/WorkRepository'
+
 import '@/shared/container/providers'
+
 
 // DATABASE
 container.registerSingleton<IUserRepository>(
@@ -32,4 +37,9 @@ container.registerSingleton<IOccupancyAreaRepository>(
 container.registerSingleton<ICoursesRepository>(
     'CoursesRepository',
     CoursesRepository
+)
+
+container.registerSingleton<IWorkRepository>(
+    'WorkRepository',
+    WorkRepository
 )
