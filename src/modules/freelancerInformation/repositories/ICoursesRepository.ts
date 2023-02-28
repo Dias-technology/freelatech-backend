@@ -9,4 +9,6 @@ export interface ICoursesRepository {
 
     findByUserID: (user_id: string) => Promise<Courses[]>
 
+    deleteById: (id: string) => Promise<void>
+
 }

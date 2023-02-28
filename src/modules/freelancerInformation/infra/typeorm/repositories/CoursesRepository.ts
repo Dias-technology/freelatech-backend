@@ -23,6 +23,10 @@ class CoursesRepository implements ICoursesRepository {
 		return this.repository.find({ user_id })
 	}
 
+    async deleteById(id: string): Promise<void>{
+        await this.repository.delete({id})
+    }
+
 }
 
 export { CoursesRepository }
