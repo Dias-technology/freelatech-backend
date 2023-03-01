@@ -19,6 +19,10 @@ class WorkRepository implements IWorkRepository {
         await this.repository.save(work)
     }
 
+    async findJobsByUserID(user_id: string): Promise<Work[]>{
+        return this.repository.find({user_id})
+    }
+
 }
 
 export { WorkRepository }
