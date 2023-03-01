@@ -23,6 +23,10 @@ class WorkRepository implements IWorkRepository {
         return this.repository.find({user_id})
     }
 
+    async deleteJobByID(id: string): Promise<void> {
+        await this.repository.delete({id})
+    }
+
 }
 
 export { WorkRepository }
