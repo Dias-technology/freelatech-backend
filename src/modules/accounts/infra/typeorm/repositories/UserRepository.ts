@@ -18,15 +18,11 @@ class UserRepository implements IUserRepository {
 	}
 
 	async findById(id: string): Promise<User> {
-		const user = this.repository.findOne({ id })
-
-		return user
+		return this.repository.findOne({ id })
 	}
 
 	async findByEmail(email: string): Promise<User> {
-		const user = this.repository.findOne({ email })
-
-		return user
+		return this.repository.findOne({ email })
 	}
 }
 
