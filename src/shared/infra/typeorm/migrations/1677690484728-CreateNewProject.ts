@@ -14,29 +14,30 @@ export class CreateNewProject1677690484728 implements MigrationInterface {
 				{
 					type: 'uuid',
 					name: 'id',
-					isPrimary: true,
+					isPrimary: true
 				},
                 {
 					name: 'title',
-					type: 'varchar',
+					type: 'varchar'
 				},
 				{
 					name: 'description',
-					type: 'varchar',
+					type: 'varchar'
 				},
 				{
 					name: 'file',
 					type: 'varchar',
+					isNullable: true
 				},
                 {
-					name: 'skills',
-					type: 'varchar',
-                    isNullable: true,
+					name: 'status',
+					type: 'boolean',
+					default: 'true'
 				},
 				{
 					name: 'experience_level',
 					type: 'varchar',
-                    isNullable: true,
+                    isNullable: true
 				},
                 {
 					name: 'budget',
@@ -44,7 +45,7 @@ export class CreateNewProject1677690484728 implements MigrationInterface {
 				},
                 {
 					name: 'occupancy',
-					type: 'varchar',
+					type: 'varchar'
 				},
                 {
 					name: 'sub_occupancy',
@@ -58,12 +59,12 @@ export class CreateNewProject1677690484728 implements MigrationInterface {
 				{
 					name: 'end_project',
 					type: 'timestamp with time zone',
-                    isNullable: true,
+                    isNullable: true
 				},
                 {
 					name: 'created_at',
 					type: 'timestamp with time zone',
-					default: 'now()',
+					default: 'now()'
 				},
                 {
 					name: 'updated_at',
@@ -73,16 +74,16 @@ export class CreateNewProject1677690484728 implements MigrationInterface {
                 {
 					name: 'deleted_at',
 					type: 'timestamp with time zone',
-					isNullable: true,
+					isNullable: true
 				},
 				{
 					name: 'worker_id',
 					type: 'uuid',
-                    isNullable: true,
+                    isNullable: true
 				},
 				{
 					name: 'owner_id',
-					type: 'uuid',
+					type: 'uuid'
 				},
 			]),
 		)

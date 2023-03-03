@@ -1,16 +1,16 @@
 
 interface ICreateNewProjectDTO {
-    id: string
+    id?: string
 
     title: string
 
     description: string
 
-    file: string
+    file?: string
 
-    skills: string[]
+    status: boolean 
 
-    budget:string
+    budget: string
 
     occupancy: string
 
@@ -20,7 +20,7 @@ interface ICreateNewProjectDTO {
 
     end_project: Date
 
-    worker_id: string
+    worker_id?: string
 
     owner_id: string
 }

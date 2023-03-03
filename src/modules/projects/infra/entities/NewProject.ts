@@ -26,8 +26,8 @@ class NewProject {
     @Column()
 	file: string
 
-    @Column()
-	skills: string
+    @Column({default: true})
+	status: boolean
 
     @Column()
 	budget: string
@@ -38,8 +38,11 @@ class NewProject {
     @Column()
 	sub_occupancy: string
 
-    @Column()
+    @Column({ type: 'date' })
 	start_project: Date
+
+	@Column({ type: 'date' })
+	end_project: Date
 
     @CreateDateColumn()
 	created_at: Date
@@ -49,9 +52,6 @@ class NewProject {
 
 	@Column()
 	deleted_at: Date
-
-    @Column()
-	end_project: Date
 
     @Column()
 	worker_id: string

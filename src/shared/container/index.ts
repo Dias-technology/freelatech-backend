@@ -18,6 +18,9 @@ import { WorkRepository } from '@/modules/freelancerInformation/infra/typeorm/re
 import { ISkillsRepository } from '@/modules/projects/repositories/ISkillsRepository'
 import { SkillsRepository } from '@/modules/projects/infra/repositories/SkillsRepository'
 
+import { INewProjectRepository } from '@/modules/projects/repositories/INewProjectRepository'
+import { NewProjectRepository } from '@/modules/projects/infra/repositories/NewProjectRepository'
+
 import '@/shared/container/providers'
 
 // DATABASE
@@ -49,4 +52,9 @@ container.registerSingleton<IWorkRepository>(
 container.registerSingleton<ISkillsRepository>(
 	'SkillsRepository',
 	SkillsRepository,
+)
+
+container.registerSingleton<INewProjectRepository>(
+	'NewProjectRepository',
+	NewProjectRepository
 )
