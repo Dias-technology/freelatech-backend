@@ -10,13 +10,15 @@ import { IOccupancyAreaRepository } from '@/modules/freelancerInformation/reposi
 import { OccupancyAreaRepository } from '@/modules/freelancerInformation/infra/typeorm/repositories/OccupancyAreaRepository'
 
 import { ICoursesRepository } from '@/modules//freelancerInformation/repositories/ICoursesRepository'
-import {CoursesRepository} from '@/modules/freelancerInformation/infra/typeorm/repositories/CoursesRepository'
+import { CoursesRepository } from '@/modules/freelancerInformation/infra/typeorm/repositories/CoursesRepository'
 
 import { IWorkRepository } from '@/modules/freelancerInformation/repositories/IWorkRepository'
 import { WorkRepository } from '@/modules/freelancerInformation/infra/typeorm/repositories/WorkRepository'
 
-import '@/shared/container/providers'
+import { ISkillsRepository } from '@/modules/projects/repositories/ISkillsRepository'
+import { SkillsRepository } from '@/modules/projects/infra/repositories/SkillsRepository'
 
+import '@/shared/container/providers'
 
 // DATABASE
 container.registerSingleton<IUserRepository>(
@@ -35,11 +37,16 @@ container.registerSingleton<IOccupancyAreaRepository>(
 )
 
 container.registerSingleton<ICoursesRepository>(
-    'CoursesRepository',
-    CoursesRepository
+	'CoursesRepository',
+	CoursesRepository,
 )
 
 container.registerSingleton<IWorkRepository>(
-    'WorkRepository',
-    WorkRepository
+	'WorkRepository',
+	WorkRepository,
+)
+
+container.registerSingleton<ISkillsRepository>(
+	'SkillsRepository',
+	SkillsRepository,
 )

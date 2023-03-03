@@ -1,7 +1,3 @@
-
-
-class CreateNewProjectController {
-
-}
+class CreateNewProjectController {}
 
 export { CreateNewProjectController }

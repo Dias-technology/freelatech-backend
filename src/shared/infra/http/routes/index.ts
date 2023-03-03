@@ -5,6 +5,7 @@ import { coursesRoutes } from './courses.routes'
 
 import { userRoutes } from './users.routes'
 import { workRoutes } from './work.routes'
+import { skillsRoutes } from './skills.routes'
 
 const router = Router()
 
@@ -13,6 +14,6 @@ router.use('/users', userRoutes)
 router.use('/occupancy_area', occupancyRoutes)
 router.use('/courses', coursesRoutes)
 router.use('/jobs', workRoutes)
-
+router.use('/skills', skillsRoutes)
 
 export { router }

@@ -1,8 +1,3 @@
-
-
-
-class CreateNewProjectUseCase {
-
-}
+class CreateNewProjectUseCase {}
 
 export { CreateNewProjectUseCase }
