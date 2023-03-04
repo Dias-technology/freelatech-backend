@@ -1,6 +1,8 @@
 import { getRepository, Repository } from 'typeorm'
-import { INewProjectRepository } from '@/modules/projects/repositories/INewProjectRepository'
+
 import { NewProject } from '@/modules/projects/infra/entities/NewProject'
+
+import { INewProjectRepository } from '@/modules/projects/repositories/INewProjectRepository'
 import { ICreateNewProjectDTO } from '@/modules/projects/dto/ICreateNewProjectDTO'
 
 class NewProjectRepository implements INewProjectRepository {
@@ -14,6 +16,10 @@ class NewProjectRepository implements INewProjectRepository {
         const newProject = this.repository.create(datas)
 
         await this.repository.save(newProject)
+    }
+
+    async findProjectByID(): Promise<NewProject[]>{
+        return this.repository.find()
     }
 }
 
