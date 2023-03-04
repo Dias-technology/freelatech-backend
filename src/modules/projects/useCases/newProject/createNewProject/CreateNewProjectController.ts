@@ -12,7 +12,7 @@ class CreateNewProjectController {
         const data = request.body
         
         const createNewProjectUseCase = container.resolve(CreateNewProjectUseCase)
-        const datas = Object.assign(owner_id, data )
+        const datas = Object.assign(data, { owner_id })
 
         await createNewProjectUseCase.execute(datas)
         
