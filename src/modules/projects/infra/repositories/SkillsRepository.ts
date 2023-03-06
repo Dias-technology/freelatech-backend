@@ -16,6 +16,10 @@ class SkillsRepository implements ISkillsRepository {
 
 		await this.repository.save(skill)
 	}
+
+	async findSkillsByProject(project_id: string): Promise<Skills[]>{
+		return this.repository.find({project_id})
+	}
 }
 
 export { SkillsRepository }
