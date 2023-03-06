@@ -30,9 +30,15 @@ projectRoutes.get(
 )
 
 projectRoutes.patch(
-	'/:id',
+	'/status/:id',
 	ensureAuthenticated,
-	updateProjectController.handle
+	updateProjectController.handleStatus
+)
+
+projectRoutes.patch(
+	'/worker/:id',
+	ensureAuthenticated,
+	updateProjectController.handleWorker
 )
 
 export { projectRoutes }
