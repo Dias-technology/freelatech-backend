@@ -20,6 +20,7 @@ class SkillsRepository implements ISkillsRepository {
 	async findSkillsByProject(project_id: string): Promise<Skills[]>{
 		return this.repository.find({project_id})
 	}
+
 }
 
 export { SkillsRepository }
