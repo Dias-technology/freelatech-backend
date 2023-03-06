@@ -3,11 +3,13 @@ import { ensureAuthenticated } from '../middlewares/ensureAuthenticated'
 
 import { CreateNewProjectController } from '@/modules/projects/useCases/newProject/createNewProject/CreateNewProjectController'
 import { ListProjectsController } from '@/modules/projects/useCases/newProject/listProjects/ListProjectsController'
+import { UpdateProjectController } from '@/modules/projects/useCases/newProject/updateProject/UpdateProjectController'
 
 const projectRoutes = Router()
 
 const createNewProjectController = new CreateNewProjectController()
 const listProjectsController = new ListProjectsController()
+const updateProjectController = new UpdateProjectController()
 
 projectRoutes.post(
 	'/',
@@ -25,6 +27,12 @@ projectRoutes.get(
 	'/:id',
 	ensureAuthenticated,
 	listProjectsController.handleOne,
+)
+
+projectRoutes.patch(
+	'/:id',
+	ensureAuthenticated,
+	updateProjectController.handle
 )
 
 export { projectRoutes }
