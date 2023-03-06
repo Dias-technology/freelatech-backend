@@ -6,20 +6,25 @@ import { ListProjectsController } from '@/modules/projects/useCases/newProject/l
 
 const projectRoutes = Router()
 
-const createNewProjectController = new CreateNewProjectController
-const listProjectsController = new ListProjectsController
+const createNewProjectController = new CreateNewProjectController()
+const listProjectsController = new ListProjectsController()
 
 projectRoutes.post(
-    '/',
-    ensureAuthenticated,
-    createNewProjectController.handle
+	'/',
+	ensureAuthenticated,
+	createNewProjectController.handle,
 )
 
 projectRoutes.get(
-    '/',
-    ensureAuthenticated,
-    listProjectsController.handle
+	'/',
+	ensureAuthenticated,
+	listProjectsController.handle,
+)
 
+projectRoutes.get(
+	'/:id',
+	ensureAuthenticated,
+	listProjectsController.handleOne,
 )
 
 export { projectRoutes }

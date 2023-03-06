@@ -2,9 +2,11 @@ import { ICreateNewProjectDTO } from '@/modules/projects/dto/ICreateNewProjectDT
 import { NewProject } from '../infra/entities/NewProject'
 
 class INewProjectRepository {
-    create: (datas: ICreateNewProjectDTO) => Promise<void>
+	create: (datas: ICreateNewProjectDTO) => Promise<void>
 
-    findProjectByID: (id: string) => Promise<NewProject[]>
+	findProjectByID: () => Promise<NewProject[]>
+
+	findOneProjectByID: (id: string) => Promise<NewProject>
 }
 
 export { INewProjectRepository }
